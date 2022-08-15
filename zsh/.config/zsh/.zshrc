@@ -40,37 +40,12 @@ zsh_add_file "zsh-prompt"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+bindkey '^ ' autosuggest-accept ## Ctrl+Space instead of default right arrow
+
+#zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
-# zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
-
-# Key-bindings
-bindkey -s '^o' 'ranger^M'
-bindkey -s '^f' 'zi^M'
-bindkey -s '^s' 'ncdu^M'
-# bindkey -s '^n' 'nvim $(fzf)^M'
-# bindkey -s '^v' 'nvim\n'
-bindkey -s '^z' 'zi^M'
-bindkey '^[[P' delete-char
-bindkey "^p" up-line-or-beginning-search # Up
-bindkey "^n" down-line-or-beginning-search # Down
-bindkey "^k" up-line-or-beginning-search # Up
-bindkey "^j" down-line-or-beginning-search # Down
-bindkey -r "^u"
-bindkey -r "^d"
-
-# FZF 
-# TODO update for mac
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
-compinit
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -81,10 +56,40 @@ export EDITOR="nvim"
 # export TERMINAL="alacritty"
 # export BROWSER="brave"
 
-# For QT Themes
-# export QT_QPA_PLATFORMTHEME=qt5ct
+# Key-bindings
+# bindkey -s '^o' 'ranger^M'
+# bindkey -s '^f' 'zi^M'
+# bindkey -s '^s' 'ncdu^M'
+# bindkey -s '^n' 'nvim $(fzf)^M'
+# bindkey -s '^v' 'nvim\n'
+# bindkey -s '^z' 'zi^M'
+# bindkey '^[[P' delete-char
+# bindkey "^p" up-line-or-beginning-search # Up
+# bindkey "^n" down-line-or-beginning-search # Down
+# bindkey "^k" up-line-or-beginning-search # Up
+# bindkey "^j" down-line-or-beginning-search # Down
+# bindkey -r "^u"
+# bindkey -r "^d"
 
-# remap caps to escape
-# setxkbmap -option caps:escape
-# swap escape and caps
-# setxkbmap -option caps:swapescape
+# FZF 
+# TODO update for mac
+# 1) Install first: brew install fzf
+# 2) Create a function to use fzf for ctrl+r
+Ctrl_R() {
+  eval $( history | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+# 3) Create a widget from that function (same name for simplicity)
+zle -N Ctrl_R{,}
+
+# 4) New binding for Ctrl+R:
+bindkey "^r" Ctrl_R
+
+### Not for MAC, should be something useful for Linux...
+#[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+#[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+#[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+#[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+#export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+compinit
