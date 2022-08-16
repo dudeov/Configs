@@ -77,7 +77,9 @@ export EDITOR="nvim"
 # 1) Install first: brew install fzf
 # 2) Create a function to use fzf for ctrl+r
 Ctrl_R() {
-  eval $( history | fzf +s --tac | sed 's/ *[0-9]* *//')
+  command=$( history | fzf +s --tac | sed 's/ *[0-9]* *//')
+  echo $command
+  eval $command
 }
 # 3) Create a widget from that function (same name for simplicity)
 zle -N Ctrl_R{,}
