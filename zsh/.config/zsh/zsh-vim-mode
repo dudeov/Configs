@@ -1,6 +1,8 @@
 # bindkey -e will be emacs mode
 bindkey -v
 export KEYTIMEOUT=1
+bindkey '^a' vi-beginning-of-line
+bindkey '^e' vi-end-of-line
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect '^h' vi-backward-char
