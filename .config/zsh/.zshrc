@@ -1,7 +1,5 @@
 #!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh
-HISTFILE=~/.zsh_history
-setopt appendhistory
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -68,8 +66,15 @@ export EDITOR="nvim"
 # bindkey -r "^u"
 # bindkey -r "^d"
 
-# FZF 
-# TODO update for mac
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=5000               #Number of history entries to save to disk
+setopt    appendhistory     #Append history to the history file (no overwriting)
+
+#### FZF to search through History ####
 # 1) Install first: brew install fzf
 # 2) Create a function to use fzf for ctrl+r
 Ctrl_R() {
@@ -82,6 +87,10 @@ zle -N Ctrl_R{,}
 
 # 4) New binding for Ctrl+R:
 bindkey "^r" Ctrl_R
+#### FZF to search through History ####
+##############################################################################
+# History Configuration
+##############################################################################
 
 ### Not for MAC, should be something useful for Linux...
 #[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
