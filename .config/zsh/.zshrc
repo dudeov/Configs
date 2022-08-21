@@ -73,7 +73,7 @@ export EDITOR="nvim"
 # 1) Install first: brew install fzf
 # 2) Create a function to use fzf for ctrl+r
 Ctrl_R() {
-  command=$( history | fzf +s --tac | sed 's/ *[0-9]* *//')
+  command=$(history 1 | fzf +s --tac | sed 's/ *[0-9]* *//')
   echo $command
   eval $command
 }
