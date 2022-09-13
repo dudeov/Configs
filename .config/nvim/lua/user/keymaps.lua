@@ -58,3 +58,9 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- Telescope
+-- To check Telescope health run the command:
+-- :checkhealth telescope
+keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
