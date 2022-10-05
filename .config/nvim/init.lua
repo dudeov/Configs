@@ -1,3 +1,8 @@
+if vim.g.vscode then
+    -- VSCode extension
+else
+    -- ordinary Neovim
+end
 require "user.alpha"
 require "user.options"
 require "user.keymaps"
