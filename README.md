@@ -10,5 +10,5 @@
 ```
 git clone https://github.com/dudeov/Configs.git
 cd Configs
-cp -R .config .zshrc .bashrc ~/
+yes | cp -R .config .zshrc .bashrc ~/
 ```
