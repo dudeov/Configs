@@ -18,16 +18,16 @@ function pyenv_configuration {
 export PYENV_ROOT="$HOME/.pyenv"
 
 if [ -d "$PYENV_ROOT" ]; then
-    pyenv_configuration()
+    pyenv_configuration
 else
     PLATFORM=$(uname)
     if [[ ${PLATFORM} == 'Darwin' ]]; then        ## MAC
         brew install pyenv
         brew install pyenv-virtualenv
-        pyenv_configuration()
+        pyenv_configuration
     elif [[ ${PLATFORM} == 'Linux' ]]; then      ## Linux
         git clone https://github.com/pyenv/pyenv.git ~/.pyenv
         git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-        pyenv_configuration()
+        pyenv_configuration
     fi
 fi
