@@ -40,4 +40,7 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 # get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
+## GIT ##
 alias gl="git log --oneline | cat"
+
+alias gp='git push -fu origin $(git rev-parse --abbrev-ref HEAD)'
