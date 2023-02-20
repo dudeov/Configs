@@ -36,4 +36,10 @@ chsh: user "aleksei.chuvakov" does not exist.
 ```
 In case you can't change the shell from BASH to ZSH ```.bashrc``` file will be resetiing your shell every login
 
+# NO INTERNET HOSTS
+comment out the following line in ```.config/zsh/zsh-aliases```
 
+```
+# alias vim='nvim'
+```
+As there is no Internet access you won't be able to install all the required extensions
