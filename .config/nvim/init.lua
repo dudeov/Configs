@@ -13,7 +13,6 @@ else
     require "user.autopairs"
     require "user.comment"
     require "user.gitsigns"
-    require "user.nvim-tree"
     require "user.bufferline"
     require "user.lualine"
     require "user.toggleterm"
