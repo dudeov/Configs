@@ -11,6 +11,13 @@
 # chsh: user "aleksei.chuvakov" does not exist.
 #
 
+# If not running interactively, don't do anything
+## Oherwise SCP doesn't work!
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 if [ "$SHELL" != "/usr/bin/zsh" ]
 then
     export SHELL="/usr/bin/zsh"
