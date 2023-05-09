@@ -44,3 +44,4 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 alias gl="git log --oneline | cat"
 
 alias gp='git push -fu origin $(git rev-parse --abbrev-ref HEAD)'
+alias bg='osascript -e "tell application \"iTerm\" to tell current session of current window to set background color to {0, 0, 0, 0}"'
