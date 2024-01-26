@@ -1,30 +1,8 @@
 #!/bin/sh
-alias j='z'
-alias f='zi'
-alias g='lazygit'
-alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-alias nvimrc='nvim ~/.config/nvim/'
 
-# Colorize output (good for log files)
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-## more ceremony for 'ls'
-case "$(uname -s)" in
-Darwin)
-	# echo 'Mac OS X'
-	alias ls='ls -G'
-	;;
-Linux)
-	alias ls='ls --color=auto'
-	;;
-*)
-	# echo 'Other OS'
-	;;
-esac
-
+# Custom
+alias ls='ls -la'
 alias cdw='cd ~/workplace'
-alias vim='nvim'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -42,6 +20,5 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 ## GIT ##
 alias gl="git log --oneline | cat"
-
 alias gp='git push -fu origin $(git rev-parse --abbrev-ref HEAD)'
 alias bg='osascript -e "tell application \"iTerm\" to tell current session of current window to set background color to {0, 0, 0, 0}"'
