@@ -47,9 +47,7 @@ zsh_add_plugin "hlissner/zsh-autopair"
 # More completions https://github.com/zsh-users/zsh-completions
 
 # Environment variables set everywhere
-export EDITOR="nvim"
-# export TERMINAL="alacritty"
-# export BROWSER="brave"
+export EDITOR="vim"
 
 # Key-bindings
 # bindkey -s '^o' 'ranger^M'
