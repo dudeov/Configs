@@ -38,7 +38,13 @@ PROMPT="\$vcs_info_msg_0_"
 # PROMPT+="%{$fg[cyan]%}[%~] $program %{$fg[default]%}
 # [%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[yellow]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}"
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
- PROMPT+="%F{cyan}[%~]%# "
+
+#### Full dir path is printed
+# PROMPT+="%F{cyan}[%~]%# "
+
+#### Only the dir name is printed without the path
+PROMPT="%{$fg[cyan]%}[%1~]%# "
+
 # TODO look into this for more colors
 # https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 # also ascii escape codes
