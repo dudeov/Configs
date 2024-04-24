@@ -43,7 +43,7 @@ PROMPT="\$vcs_info_msg_0_"
 # PROMPT+="%F{cyan}[%~]%# "
 
 #### Only the dir name is printed without the path
-PROMPT="%{$fg[cyan]%}[%1~]%# "
+PROMPT+="%{$fg[cyan]%}[%1~]%# "
 
 # TODO look into this for more colors
 # https://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
